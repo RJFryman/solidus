@@ -64,7 +64,7 @@ module Spree
     end
 
     def logo(image_path=Spree::Config[:logo])
-      link_to image_tag(image_path), spree.root_path
+      link_to image_tag(image_path), spree.explore_path
     end
 
     def flash_messages(opts = {})
@@ -81,7 +81,7 @@ module Spree
     def breadcrumbs(taxon, separator="&nbsp;&raquo;&nbsp;", breadcrumb_class="inline")
       return "" if current_page?("/") || taxon.nil?
 
-      crumbs = [[Spree.t(:home), spree.root_path]]
+      crumbs = [[Spree.t(:home), spree.explore_path]]
 
       if taxon
         crumbs << [Spree.t(:products), products_path]

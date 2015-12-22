@@ -58,7 +58,7 @@ module Spree
 
       if error
         flash[:error] = error
-        redirect_back_or_default(spree.root_path)
+        redirect_back_or_default(spree.explore_path)
       else
         respond_with(order) do |format|
           format.html { redirect_to cart_path }

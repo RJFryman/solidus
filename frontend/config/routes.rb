@@ -1,6 +1,6 @@
 Spree::Core::Engine.add_routes do
 
-  root :to => 'home#index'
+  get '/explore', :to => 'home#index'
 
   resources :products, :only => [:index, :show]
 
@@ -27,10 +27,10 @@ Spree::Core::Engine.add_routes do
   patch '/cart', :to => 'orders#update', :as => :update_cart
   put '/cart/empty', :to => 'orders#empty', :as => :empty_cart
 
-  # route globbing for pretty nested taxon and product paths
-  get '/t/*id', :to => 'taxons#show', :as => :nested_taxons
-
   get '/unauthorized', :to => 'home#unauthorized', :as => :unauthorized
   get '/content/cvv', :to => 'content#cvv', :as => :cvv
   get '/cart_link', :to => 'store#cart_link', :as => :cart_link
+
+  # route globbing for pretty nested taxon and product paths
+  get '/t/*id', :to => 'taxons#show', :as => :nested_taxons
 end
